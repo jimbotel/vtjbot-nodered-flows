@@ -43,11 +43,11 @@ Aunque se puede integrar con otros "Skills" desarrollados a medida, se proporcio
 
 Este Skill se puede importar directamente en Watson Assistant, tras lo cual se ha de apuntar el denominado "WorkSpace ID" en los detalled de la API. 
 
-<img src="images/api-details.jpg" width="100%">
+<img src="images/api-details.jpg" width="80%">
 
 Aparece como:
 
-<img src="images/workspace-id.jpg" width="100%">
+<img src="images/workspace-id.jpg" width="80%">
 
 Tenemos que fijarnos en la línea:
 
