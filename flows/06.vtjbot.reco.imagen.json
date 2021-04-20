@@ -1,0 +1,114 @@
+[
+    {
+        "id": "cccc3565.6fc148",
+        "type": "tab",
+        "label": "Reco imagen",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f3b8f86b.0cf238",
+        "type": "inject",
+        "z": "cccc3565.6fc148",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "f68c7282.3b4f1"
+            ]
+        ]
+    },
+    {
+        "id": "f68c7282.3b4f1",
+        "type": "vtjbot-see",
+        "z": "cccc3565.6fc148",
+        "botId": "ab0a6525.660408",
+        "mode": "see",
+        "returnOnPayload": false,
+        "width": 960,
+        "height": 720,
+        "name": "reconoce objetos",
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "ba036ffa.ee6c1",
+                "7e545a4e.985b74"
+            ]
+        ]
+    },
+    {
+        "id": "ba036ffa.ee6c1",
+        "type": "function",
+        "z": "cccc3565.6fc148",
+        "name": "resumen",
+        "func": "msg.payload = 'Watson sees: '+msg.payload.map(\n    function(c) { return c['class']; }).join(', ');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "f4e17340.c78b5"
+            ]
+        ]
+    },
+    {
+        "id": "f4e17340.c78b5",
+        "type": "debug",
+        "z": "cccc3565.6fc148",
+        "name": "reconocido",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 720,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7e545a4e.985b74",
+        "type": "debug",
+        "z": "cccc3565.6fc148",
+        "name": "todo",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 570,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ab0a6525.660408",
+        "type": "vtjbot-config",
+        "z": "",
+        "botGender": "female",
+        "name": "TJBotC",
+        "listen": "es-ES",
+        "speak": "es-ES",
+        "hasServo": true,
+        "hasLED": true,
+        "hasSpeaker": true,
+        "hasMicrophone": true,
+        "hasCamera": true,
+        "aUrl": "https://gateway-lon.watsonplatform.net/assistant/api",
+        "taUrl": "https://gateway-lon.watsonplatform.net/tone-analyzer/api",
+        "ltUrl": "https://gateway-lon.watsonplatform.net/language-translator/api",
+        "sttUrl": "https://gateway-lon.watsonplatform.net/speech-to-text/api",
+        "ttsUrl": "https://gateway-lon.watsonplatform.net/text-to-speech/api",
+        "vrUrl": "https://gateway.watsonplatform.net/visual-recognition/api"
+    }
+]

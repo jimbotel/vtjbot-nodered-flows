@@ -1,0 +1,78 @@
+[
+    {
+        "id": "1f6ed6de.e8cb19",
+        "type": "tab",
+        "label": "Analisis tono",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "897ce5f7.7b4998",
+        "type": "vtjbot-analyze-tone",
+        "z": "1f6ed6de.e8cb19",
+        "botId": "ab0a6525.660408",
+        "name": "",
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "b066cb09.952418"
+            ]
+        ]
+    },
+    {
+        "id": "61fbdd5e.8b9344",
+        "type": "inject",
+        "z": "1f6ed6de.e8cb19",
+        "name": "tweets",
+        "topic": "",
+        "payload": "I hate these new features On #ThisPhone after the update. I hate #ThisPhoneCompany products, you'd have to torture me to get me to use #ThisPhone. The emojis in #ThisPhone are stupid. #ThisPhone is a useless, stupid waste of money. #ThisPhone is the worst phone I've ever had - ever 😠. #ThisPhone another ripoff, lost all respect SHAME. I'm worried my #ThisPhone is going to overheat like my brother's did. #ThisPhoneCompany really let me down... my new phone won't even turn on.",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "897ce5f7.7b4998"
+            ]
+        ]
+    },
+    {
+        "id": "b066cb09.952418",
+        "type": "debug",
+        "z": "1f6ed6de.e8cb19",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 710,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ab0a6525.660408",
+        "type": "vtjbot-config",
+        "z": "",
+        "botGender": "female",
+        "name": "TJBotC",
+        "listen": "es-ES",
+        "speak": "es-ES",
+        "hasServo": true,
+        "hasLED": true,
+        "hasSpeaker": true,
+        "hasMicrophone": true,
+        "hasCamera": true,
+        "aUrl": "https://gateway-lon.watsonplatform.net/assistant/api",
+        "taUrl": "https://gateway-lon.watsonplatform.net/tone-analyzer/api",
+        "ltUrl": "https://gateway-lon.watsonplatform.net/language-translator/api",
+        "sttUrl": "https://gateway-lon.watsonplatform.net/speech-to-text/api",
+        "ttsUrl": "https://gateway-lon.watsonplatform.net/text-to-speech/api",
+        "vrUrl": "https://gateway.watsonplatform.net/visual-recognition/api"
+    }
+]

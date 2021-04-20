@@ -1,0 +1,150 @@
+[
+    {
+        "id": "e1e0d30f.6fa7d",
+        "type": "tab",
+        "label": "Foto URL",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7a8c8028.8a065",
+        "type": "vtjbot-see",
+        "z": "e1e0d30f.6fa7d",
+        "botId": "ab0a6525.660408",
+        "mode": "takephoto",
+        "returnOnPayload": false,
+        "width": 960,
+        "height": 720,
+        "name": "Hacer una foto",
+        "x": 360,
+        "y": 260,
+        "wires": [
+            [
+                "ceca6c10.a993d",
+                "7a3a743b.669f7c"
+            ]
+        ]
+    },
+    {
+        "id": "bc7aa04e.7102e",
+        "type": "http in",
+        "z": "e1e0d30f.6fa7d",
+        "name": "",
+        "url": "/foto",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "7a8c8028.8a065"
+            ]
+        ]
+    },
+    {
+        "id": "ceca6c10.a993d",
+        "type": "file in",
+        "z": "e1e0d30f.6fa7d",
+        "name": "",
+        "filename": "",
+        "format": "",
+        "sendError": true,
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "6b00e433.f5211c"
+            ]
+        ]
+    },
+    {
+        "id": "6b00e433.f5211c",
+        "type": "change",
+        "z": "e1e0d30f.6fa7d",
+        "name": "Set Headers",
+        "rules": [
+            {
+                "t": "set",
+                "p": "headers",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "headers.content-type",
+                "pt": "msg",
+                "to": "image/jpg",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 260,
+        "wires": [
+            [
+                "c4acf53.f3e0408"
+            ]
+        ]
+    },
+    {
+        "id": "c4acf53.f3e0408",
+        "type": "http response",
+        "z": "e1e0d30f.6fa7d",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 890,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "7a3a743b.669f7c",
+        "type": "debug",
+        "z": "e1e0d30f.6fa7d",
+        "name": "El archivo de salida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "filename",
+        "x": 630,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4e152471.7d334c",
+        "type": "comment",
+        "z": "e1e0d30f.6fa7d",
+        "name": "Hace una foto y la muestra: http://direccionIP:puerto/foto",
+        "info": "Para hacer la foto abrir una nueva pestaña y poner la dirección:\nhttp://direccionIP:puerto/foto\n",
+        "x": 290,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ab0a6525.660408",
+        "type": "vtjbot-config",
+        "z": "",
+        "botGender": "female",
+        "name": "TJBotC",
+        "listen": "es-ES",
+        "speak": "es-ES",
+        "hasServo": true,
+        "hasLED": true,
+        "hasSpeaker": true,
+        "hasMicrophone": true,
+        "hasCamera": true,
+        "aUrl": "https://gateway-lon.watsonplatform.net/assistant/api",
+        "taUrl": "https://gateway-lon.watsonplatform.net/tone-analyzer/api",
+        "ltUrl": "https://gateway-lon.watsonplatform.net/language-translator/api",
+        "sttUrl": "https://gateway-lon.watsonplatform.net/speech-to-text/api",
+        "ttsUrl": "https://gateway-lon.watsonplatform.net/text-to-speech/api",
+        "vrUrl": "https://gateway.watsonplatform.net/visual-recognition/api"
+    }
+]

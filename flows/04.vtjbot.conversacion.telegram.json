@@ -1,0 +1,197 @@
+[
+    {
+        "id": "1baa3b9d.056714",
+        "type": "tab",
+        "label": "conversacion telegram",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "59550d45.09d1c4",
+        "type": "telegram sender",
+        "z": "1baa3b9d.056714",
+        "name": "",
+        "bot": "3035d46a.e22f6c",
+        "x": 970,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f15928c6.c95d78",
+        "type": "telegram receiver",
+        "z": "1baa3b9d.056714",
+        "name": "",
+        "bot": "3035d46a.e22f6c",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "9f1de0fb.44ec"
+            ],
+            [
+                "9f1de0fb.44ec"
+            ]
+        ]
+    },
+    {
+        "id": "9f1de0fb.44ec",
+        "type": "function",
+        "z": "1baa3b9d.056714",
+        "name": "pre-proceso",
+        "func": "msg.user = msg.payload.chatId;\nmsg.payload = msg.payload.content;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "463b4f64.56bbb"
+            ]
+        ]
+    },
+    {
+        "id": "68e8affa.4f3c3",
+        "type": "function",
+        "z": "1baa3b9d.056714",
+        "name": "post-proceso",
+        "func": "msg.payload ={chatId: msg.user,type: \"message\",content: msg.response.object.output.text.join(\" \")};\nflow.set(\"flowchatId\", msg.user );\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 760,
+        "y": 400,
+        "wires": [
+            [
+                "59550d45.09d1c4",
+                "df84188e.cb2858"
+            ]
+        ]
+    },
+    {
+        "id": "463b4f64.56bbb",
+        "type": "vtjbot-converse",
+        "z": "1baa3b9d.056714",
+        "botId": "ab0a6525.660408",
+        "name": "",
+        "x": 580,
+        "y": 300,
+        "wires": [
+            [
+                "68e8affa.4f3c3",
+                "991b0f6f.f8d6"
+            ]
+        ]
+    },
+    {
+        "id": "991b0f6f.f8d6",
+        "type": "debug",
+        "z": "1baa3b9d.056714",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "response",
+        "x": 800,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "df84188e.cb2858",
+        "type": "debug",
+        "z": "1baa3b9d.056714",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 900,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "866c5633.b127d8",
+        "type": "inject",
+        "z": "1baa3b9d.056714",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 500,
+        "y": 520,
+        "wires": [
+            [
+                "4d8b405c.0a47"
+            ]
+        ]
+    },
+    {
+        "id": "4d8b405c.0a47",
+        "type": "function",
+        "z": "1baa3b9d.056714",
+        "name": "enviar mensaje",
+        "func": "var mychatId = flow.get(\"flowchatId\");\nmsg.payload ={chatId: mychatId,type: \"message\",content: \"una prueba\"};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 710,
+        "y": 520,
+        "wires": [
+            [
+                "59550d45.09d1c4"
+            ]
+        ]
+    },
+    {
+        "id": "3035d46a.e22f6c",
+        "type": "telegram bot",
+        "z": "",
+        "botname": "HuertanaBot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "ab0a6525.660408",
+        "type": "vtjbot-config",
+        "z": "",
+        "botGender": "female",
+        "name": "TJBotC",
+        "listen": "es-ES",
+        "speak": "es-ES",
+        "hasServo": true,
+        "hasLED": true,
+        "hasSpeaker": true,
+        "hasMicrophone": true,
+        "hasCamera": true,
+        "aUrl": "https://gateway-lon.watsonplatform.net/assistant/api",
+        "taUrl": "https://gateway-lon.watsonplatform.net/tone-analyzer/api",
+        "ltUrl": "https://gateway-lon.watsonplatform.net/language-translator/api",
+        "sttUrl": "https://gateway-lon.watsonplatform.net/speech-to-text/api",
+        "ttsUrl": "https://gateway-lon.watsonplatform.net/text-to-speech/api",
+        "vrUrl": "https://gateway.watsonplatform.net/visual-recognition/api"
+    }
+]

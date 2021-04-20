@@ -1,0 +1,369 @@
+[
+    {
+        "id": "79619de1.98bae4",
+        "type": "tab",
+        "label": "LED voz",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f33f86c1.67e5b8",
+        "type": "vtjbot-shine",
+        "z": "79619de1.98bae4",
+        "botId": "ab0a6525.660408",
+        "mode": "shine",
+        "color": "msg.color",
+        "duration": "0.5",
+        "name": "brilla",
+        "x": 870,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f9263ee6.f79b6",
+        "type": "vtjbot-listen",
+        "z": "79619de1.98bae4",
+        "botId": "ab0a6525.660408",
+        "name": "reconoce el color",
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "9bf60e85.9f05",
+                "7731eaf3.a7b174",
+                "87f6568.02202a8",
+                "c81a7b57.6df908"
+            ]
+        ]
+    },
+    {
+        "id": "f0984df5.13497",
+        "type": "inject",
+        "z": "79619de1.98bae4",
+        "name": "empezar a escuchar",
+        "topic": "",
+        "payload": "start",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "29f35241.70580e",
+                "c3f50265.f051"
+            ]
+        ]
+    },
+    {
+        "id": "29f35241.70580e",
+        "type": "change",
+        "z": "79619de1.98bae4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mode",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "f9263ee6.f79b6"
+            ]
+        ]
+    },
+    {
+        "id": "9bf60e85.9f05",
+        "type": "debug",
+        "z": "79619de1.98bae4",
+        "name": "Reconocido",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 830,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7d6760d1.3499c",
+        "type": "debug",
+        "z": "79619de1.98bae4",
+        "name": "Colour",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "color",
+        "x": 870,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "f3dc6800.f24e58",
+        "type": "function",
+        "z": "79619de1.98bae4",
+        "name": "para",
+        "func": "msg.mode = \"stop\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "f9263ee6.f79b6"
+            ]
+        ]
+    },
+    {
+        "id": "7731eaf3.a7b174",
+        "type": "delay",
+        "z": "79619de1.98bae4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "f3dc6800.f24e58"
+            ]
+        ]
+    },
+    {
+        "id": "c2542cf5.0b255",
+        "type": "delay",
+        "z": "79619de1.98bae4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "4",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 680,
+        "y": 540,
+        "wires": [
+            [
+                "337b750d.0a579a"
+            ]
+        ]
+    },
+    {
+        "id": "337b750d.0a579a",
+        "type": "vtjbot-shine",
+        "z": "79619de1.98bae4",
+        "botId": "ab0a6525.660408",
+        "mode": "shine",
+        "color": "black",
+        "duration": "",
+        "name": "Apaga el LED",
+        "x": 860,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "c3f50265.f051",
+        "type": "vtjbot-shine",
+        "z": "79619de1.98bae4",
+        "botId": "ab0a6525.660408",
+        "mode": "shine",
+        "color": "black",
+        "duration": "",
+        "name": "Apaga el LED",
+        "x": 360,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d0586241.dc825",
+        "type": "change",
+        "z": "79619de1.98bae4",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "color",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 540,
+        "wires": [
+            [
+                "c2542cf5.0b255"
+            ]
+        ]
+    },
+    {
+        "id": "2f4cda7a.941a96",
+        "type": "vtjbot-translate",
+        "z": "79619de1.98bae4",
+        "botId": "ab0a6525.660408",
+        "srcLang": "es",
+        "targetLang": "en",
+        "mode": "translate",
+        "name": "español-ingles",
+        "x": 410,
+        "y": 460,
+        "wires": [
+            [
+                "cfdeec61.c478c",
+                "74249b29.f995f4"
+            ]
+        ]
+    },
+    {
+        "id": "cfdeec61.c478c",
+        "type": "change",
+        "z": "79619de1.98bae4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "response.translations[0].translation",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 460,
+        "wires": [
+            [
+                "7d6760d1.3499c",
+                "f33f86c1.67e5b8",
+                "d0586241.dc825"
+            ]
+        ]
+    },
+    {
+        "id": "74249b29.f995f4",
+        "type": "debug",
+        "z": "79619de1.98bae4",
+        "name": "traduccion",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "response.translations[0].translation",
+        "x": 650,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "87f6568.02202a8",
+        "type": "function",
+        "z": "79619de1.98bae4",
+        "name": "trim",
+        "func": "var str1 = msg.payload.trim();\nstr1 = str1.replace(/\\.$/,'');\nmsg.payload = str1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "2f4cda7a.941a96"
+            ]
+        ]
+    },
+    {
+        "id": "6bfe262f.dfce68",
+        "type": "comment",
+        "z": "79619de1.98bae4",
+        "name": "Enciende el LED de la cabeza de TJBot virtual con el color elegido, que pedimos mediante voz en español",
+        "info": "",
+        "x": 430,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c81a7b57.6df908",
+        "type": "vtjbot-speak",
+        "z": "79619de1.98bae4",
+        "botId": "ab0a6525.660408",
+        "mode": "speak",
+        "payload": "",
+        "name": "",
+        "x": 810,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "38e8702c.8c5e2",
+        "type": "inject",
+        "z": "79619de1.98bae4",
+        "name": "para (emergencia)",
+        "topic": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "29f35241.70580e"
+            ]
+        ]
+    },
+    {
+        "id": "ab0a6525.660408",
+        "type": "vtjbot-config",
+        "z": "",
+        "botGender": "female",
+        "name": "TJBotC",
+        "listen": "es-ES",
+        "speak": "es-ES",
+        "hasServo": true,
+        "hasLED": true,
+        "hasSpeaker": true,
+        "hasMicrophone": true,
+        "hasCamera": true,
+        "aUrl": "https://gateway-lon.watsonplatform.net/assistant/api",
+        "taUrl": "https://gateway-lon.watsonplatform.net/tone-analyzer/api",
+        "ltUrl": "https://gateway-fra.watsonplatform.net/language-translator/api",
+        "sttUrl": "https://gateway-lon.watsonplatform.net/speech-to-text/api",
+        "ttsUrl": "https://gateway-lon.watsonplatform.net/text-to-speech/api",
+        "vrUrl": "https://gateway.watsonplatform.net/visual-recognition/api"
+    }
+]
