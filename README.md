@@ -17,7 +17,7 @@ El texto de entrada de ejemplo se trata de una serie de mensajes de Twitter.
 
 <img src="images/01.vtjbot.analisis.de.tono.jpg" width="100%">
 
-## 2) Encendido del LED virtual con un color elegido por mediante la voz  
+## 2) Encendido del LED virtual con un color elegido mediante la voz  
 
 El propósito de este flujo ([02.vtjbot.led.voz.json](flows/02.vtjbot.led.voz.json)) es demostrar cómo combinar varios bloques para crear soluciones novedosas.
 
@@ -74,7 +74,7 @@ Este flujo ([05.vtjbot.foto.url.json](flows/05.vtjbot.foto.url.json)) hace una f
 
 Para ello utilizamos el nodo "See" de TJBot virtual en modo "Take photo".
 
-Para hacer la foto abrir una nueva pestaña y poner la dirección: http://direccionIP:puerto/foto 
+Para hacer la foto abrir una nueva pestaña y poner la dirección: https://direccionIP:puerto/foto 
 
 utilizando los mismos "direccionIP:puerto" que los empleados para acceder a Node-RED.
 
