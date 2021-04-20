@@ -1,7 +1,7 @@
 # vtjbot-nodered-flows
 ## Flujos de Node-RED creados para mostrar los servicios de Watson a estudiantes mediante TJBot virtual
 
-Estos flujos son ejemplos que utilizan los nodos de TJBot virtual en Node-RED. Son un buen complemento a la imagen Docker [jimbotel/vtjbot-nodered-docker] (https://hub.docker.com/repository/docker/jimbotel/vtjbot-nodered-docker)
+Estos flujos son ejemplos que utilizan los nodos de TJBot virtual en Node-RED. Son un buen complemento a la imagen Docker [jimbotel/vtjbot-nodered-docker](https://hub.docker.com/repository/docker/jimbotel/vtjbot-nodered-docker)
 
 ## 1) Análisis de Tono
 
@@ -9,7 +9,7 @@ Este flujo ([01.vtjbot.analisis.tono.json](flows/01.vtjbot.analisis.tono.json)) 
 
 El análisis se realiza a dos niveles, de frase y de documento, y es capaz de detectar tres tipos de tonos, incluidos la emoción (ira, asco, miedo, alegría y tristeza), las actitudes sociales (franqueza, diligencia, extroversión, simpatía y rango emocional), y los estilos de lenguaje (analítico, seguro y vacilante).
 
-<img src="images/01.vtjbot.analisis.tono.jpg" width="100%">
+<img src="images/01.vtjbot.analisis.de.tono.jpg" width="100%">
 
 ## 2) Encendido del LED virtual con un color elegido por mediante la voz  
 
@@ -41,14 +41,15 @@ Este Skill se puede importar directamente en Watson Assistant, tras lo cual se h
 
 Aparece como:
 
-   Legacy v1 workspace URL:  https://gateway-lon.watsonplatform.net/assistant/api/v1/workspaces/el-workspace-id/message
-
 <img src="images/workspace-id.jpg" width="100%">
+
+Tenemos que fijarnos en la línea:
+
+   Legacy v1 workspace URL:  https://gateway-lon.watsonplatform.net/assistant/api/v1/workspaces/el-workspace-id/message
 
 Nos interesa el código que aquí hemos puesto como "el-workspace-id". Este código es el que hay que poner en el campo "WorkSpace ID" en la configuración de TJBot virtual. 
 
 <img src="images/tjbotconfig.jpg" width="100%">
-
 
 ## 4) Conversación Telegram 
 
@@ -59,7 +60,7 @@ Para probarlo se puede utilizar el mismo Skill del ejercicio anterior  ([skill-w
 
 Las instrucciones detalladas para la creación del chatbot pueden encontrarse en la formación de Watson va a Clase.
 
-<img src="images/04.vtjbot.conversacion.telegram.jpg" width="100%">
+<img src="images/04.vtjbot.conversacion.telegram.jpg" width="50%">
 
 ## 5) Tomar una foto y mostrarla
 
