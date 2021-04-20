@@ -86,7 +86,7 @@ Este flujo ([06.vtjbot.reco.imagen.json](flows/06.vtjbot.reco.imagen.json)) toma
 
 Para ello utilizamos el nodo "See" de TJBot virtual en modo "See (identify objects)". 
 
-Nota: el servicio Watson Visual Recognition ya no está disponible en nuevas cuentas y va a descontinuarse a finales de 2021 debido a una [decisión de IBM tomada en Junio de 2020](https://elpais.com/tecnologia/2020-06-09/ibm-abandona-la-tecnologia-de-reconocimiento-facial-por-las-dudas-eticas-sobre-su-utilizacion.html).
+Nota: el servicio Watson Visual Recognition ya no está disponible en nuevas cuentas y va a descontinuarse a finales de 2021 debido a una [decisión de IBM tomada en Junio de 2020](https://elpais.com/tecnologia/2020-06-09/ibm-abandona-la-tecnologia-de-reconocimiento-facial-por-las-dudas-eticas-sobre-su-utilizacion.html) en relación con las dudas éticas sobre su uso.
 
 <img src="images/06.vtjbot.reco.imagen.jpg" width="100%">
 
