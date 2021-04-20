@@ -25,7 +25,7 @@ El flujo tiene algunos "trucos" para parar el servicio de reconocimiento tan pro
 
 ## 3) Conversación (Asistente por voz)
 
-Este flujo ([03.vtjbot.conversa.json](flows/03.vtjbot.conversa.json)) sirve como interfaz de voz para un asistente virtual creado mediante Watson Assistant. 
+Este flujo ([03.vtjbot.conversa.json](flows/03.vtjbot.conversa.json)) sirve como interfaz de voz para un Skill creado mediante Watson Assistant. 
 
 Utiliza los nodos "Listen" ("Speech To Text", reconocimiento de voz), "assistant" ("Watson Assistant", para crear interfaces de conversación) y "Speak" ("Text to Speech", conversión de texto a voz).
 
@@ -49,7 +49,7 @@ Tenemos que fijarnos en la línea:
 
 Nos interesa el código que aquí hemos puesto como "el-workspace-id". Este código es el que hay que poner en el campo "WorkSpace ID" en la configuración de TJBot virtual. 
 
-<img src="images/tjbotconfig.jpg" width="100%">
+<img src="images/tjbotconfig.jpg" width="50%">
 
 ## 4) Conversación Telegram 
 
@@ -60,7 +60,7 @@ Para probarlo se puede utilizar el mismo Skill del ejercicio anterior  ([skill-w
 
 Las instrucciones detalladas para la creación del chatbot pueden encontrarse en la formación de Watson va a Clase.
 
-<img src="images/04.vtjbot.conversacion.telegram.jpg" width="50%">
+<img src="images/04.vtjbot.conversacion.telegram.jpg" width="100%">
 
 ## 5) Tomar una foto y mostrarla
 
