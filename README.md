@@ -1,13 +1,19 @@
 # vtjbot-nodered-flows
 ## Flujos de Node-RED creados para mostrar los servicios de Watson a estudiantes mediante TJBot virtual
 
-Estos flujos son ejemplos que utilizan los nodos de TJBot virtual en Node-RED. Son un buen complemento a la imagen Docker [jimbotel/vtjbot-nodered-docker](https://hub.docker.com/repository/docker/jimbotel/vtjbot-nodered-docker)
+Estos flujos son ejemplos que utilizan los nodos de TJBot virtual en Node-RED. 
+
+La mayoría de ellos se presentan en la sesión [Watson Va a Clase – TjBot Virtual en Node-Red](https://www.ptech.org/events/tjbot-virtual-node-red/)
+
+Son un buen complemento a la imagen Docker presentada en la misma sesión: [jimbotel/vtjbot-nodered-docker](https://hub.docker.com/repository/docker/jimbotel/vtjbot-nodered-docker)
 
 ## 1) Análisis de Tono
 
 Este flujo ([01.vtjbot.analisis.tono.json](flows/01.vtjbot.analisis.tono.json)) muestra un ejemplo de uso del nodo "analyze tone" (análisis de tono), que se apoya en el servicio "Tone Analyzer" de IBM Cloud para realizar un análisis del tono de un texto de entrada.
 
 El análisis se realiza a dos niveles, de frase y de documento, y es capaz de detectar tres tipos de tonos, incluidos la emoción (ira, asco, miedo, alegría y tristeza), las actitudes sociales (franqueza, diligencia, extroversión, simpatía y rango emocional), y los estilos de lenguaje (analítico, seguro y vacilante).
+
+El texto de entrada de ejemplo se trata de una serie de mensajes de Twitter.
 
 <img src="images/01.vtjbot.analisis.de.tono.jpg" width="100%">
 
@@ -17,7 +23,7 @@ El propósito de este flujo ([02.vtjbot.led.voz.json](flows/02.vtjbot.led.voz.js
 
 En este caso combinamos los nodos "Listen" ("Speech To Text", reconocimiento de voz), "Speak" ("Text to Speech", conversión de texto a voz) y "Translate" ("Language Translator", traducción de idioma).
 
-El flujo recibe un color expresado mediante la voz, el cual pasa a texto. A continuación, repite mediante voz lo que ha entendido a la vez que traduce el texto a inglés antes de pasárselo como entrada al nodo "shine", el cual ilumina el LED.
+El flujo recibe un color expresado mediante la voz, el cual pasa a texto. A continuación, repite mediante voz lo que ha entendido a la vez que traduce el texto a inglés antes de pasárselo como entrada al nodo "shine", el cual ilumina el LED con el color elegido.
 
 El flujo tiene algunos "trucos" para parar el servicio de reconocimiento tan pronto haya reconocido algo, e introduce un retraso de 4 segundos de forma que la luz del LED vuelve a apagarse al final pasado ese tiempo.
 
